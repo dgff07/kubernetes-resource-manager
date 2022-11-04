@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/dgff07/kubernetes-resource-manager/model"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/kubernetes"
 )
@@ -13,7 +14,7 @@ type namespaceRemoval struct {
 }
 
 func (ns *namespaceRemoval) apply(jsonData string) error {
-	namespace, err := convertJsonToNamespaceStruct(jsonData)
+	namespace, err := model.ConvertJsonToNamespaceStruct(jsonData)
 
 	if err != nil {
 		return err

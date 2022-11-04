@@ -2,11 +2,9 @@ package main
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 
 	"github.com/dgff07/kubernetes-resource-manager/model"
-
 	v1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/kubernetes"
@@ -18,7 +16,7 @@ type namespaceCreator struct {
 
 func (ns *namespaceCreator) apply(jsonData string) error {
 
-	namespace, err := convertJsonToNamespaceStruct(jsonData)
+	namespace, err := model.ConvertJsonToNamespaceStruct(jsonData)
 
 	if err != nil {
 		return err
@@ -36,16 +34,4 @@ func (ns *namespaceCreator) apply(jsonData string) error {
 	}
 
 	return nil
-}
-
-func convertJsonToNamespaceStruct(jsonData string) (*model.Namespace, error) {
-	var namespace model.Namespace
-	err := json.Unmarshal([]byte(jsonData), &namespace)
-
-	if err != nil {
-		fmt.Println("An error occurred on trying to convert the json string to the namespace struct.", err)
-		return nil, err
-	}
-
-	return &namespace, nil
 }
