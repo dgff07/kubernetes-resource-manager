@@ -9,14 +9,17 @@ func main() {
 
 	for _, configData := range data {
 
-		config, err := mapToConfiguration("CREATE_NAMESPACE", configData)
+		config, err := mapToConfiguration("DELETE_NAMESPACE", configData)
 
 		if err != nil {
 			fmt.Println("Error: ", err)
 			continue
 		}
 
-		config.applier.apply(config.jsonData)
+		err = config.applier.apply(config.jsonData)
+		if err != nil {
+			fmt.Println("Error: ", err)
+		}
 	}
 
 }
