@@ -1,10 +1,11 @@
 package main
 
 import (
-	"fmt"
+	"github.com/dgff07/kubernetes-resource-manager/logging"
 )
 
 func main() {
+	logging.Init()
 	data := createDummyData()
 
 	for _, configData := range data {
@@ -12,13 +13,13 @@ func main() {
 		config, err := mapToConfiguration("DELETE_NAMESPACE", configData)
 
 		if err != nil {
-			fmt.Println("Error: ", err)
+			logging.Log.Error(err.Error())
 			continue
 		}
 
 		err = config.applier.apply(config.jsonData)
 		if err != nil {
-			fmt.Println("Error: ", err)
+			logging.Log.Error(err.Error())
 		}
 	}
 

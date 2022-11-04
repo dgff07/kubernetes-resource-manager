@@ -2,7 +2,8 @@ package model
 
 import (
 	"encoding/json"
-	"fmt"
+
+	"github.com/dgff07/kubernetes-resource-manager/logging"
 )
 
 func ConvertJsonToNamespaceStruct(jsonData string) (*Namespace, error) {
@@ -10,7 +11,7 @@ func ConvertJsonToNamespaceStruct(jsonData string) (*Namespace, error) {
 	err := json.Unmarshal([]byte(jsonData), &namespace)
 
 	if err != nil {
-		fmt.Println("An error occurred on trying to convert the json string to the namespace struct.", err)
+		logging.Log.Error("An error occurred on trying to convert the json string to the namespace struct. " + err.Error())
 		return nil, err
 	}
 

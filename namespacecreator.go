@@ -2,8 +2,8 @@ package main
 
 import (
 	"context"
-	"fmt"
 
+	"github.com/dgff07/kubernetes-resource-manager/logging"
 	"github.com/dgff07/kubernetes-resource-manager/model"
 	v1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -22,14 +22,14 @@ func (ns *namespaceCreator) apply(jsonData string) error {
 		return err
 	}
 
-	fmt.Printf("\nCreating namespace: %s \nannotations: %s\nlabels: %s\n\n", namespace.Name, namespace.Annotations, namespace.Labels)
+	logging.Log.Info("Creating namespace " + namespace.Name)
 
 	namespaceSpec := &v1.Namespace{ObjectMeta: metav1.ObjectMeta{Name: namespace.Name}}
 
 	_, err = ns.kubeapi.CoreV1().Namespaces().Create(context.Background(), namespaceSpec, metav1.CreateOptions{})
 
 	if err != nil {
-		fmt.Printf("An error occurred on trying to create the namespace '%s'", namespace.Name)
+		logging.Log.Error("An error occurred on trying to create the namespace:" + namespace.Name + ". " + err.Error())
 		return err
 	}
 

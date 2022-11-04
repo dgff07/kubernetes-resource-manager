@@ -2,8 +2,8 @@ package main
 
 import (
 	"context"
-	"fmt"
 
+	"github.com/dgff07/kubernetes-resource-manager/logging"
 	"github.com/dgff07/kubernetes-resource-manager/model"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/kubernetes"
@@ -20,12 +20,12 @@ func (ns *namespaceRemoval) apply(jsonData string) error {
 		return err
 	}
 
-	fmt.Printf("\nDeleting namespace: %s\n\n", namespace.Name)
+	logging.Log.Info("Deleting namespace " + namespace.Name)
 
 	err = ns.kubeapi.CoreV1().Namespaces().Delete(context.Background(), namespace.Name, metav1.DeleteOptions{})
 
 	if err != nil {
-		fmt.Printf("An error occurred on trying to delete the namespace '%s'\n", namespace.Name)
+		logging.Log.Error("An error occurred on trying to delete the namespace:" + namespace.Name + ". " + err.Error())
 		return err
 	}
 
