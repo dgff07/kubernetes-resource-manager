@@ -47,6 +47,10 @@ github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ3
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
+github.com/dgff07/go-log-lib v1.0.0 h1:W3JrBPSG+t4YzPzVvqtSlMVE/UsEeCZ7yIELiErn2y0=
+github.com/dgff07/go-log-lib v1.0.0/go.mod h1:HIHN63RXi9vGYTYy6sdmUScuNvrKgEflXata4sN4KpA=
+github.com/dgff07/go-log-lib v1.0.1 h1:+hXCHlg31lLgwIejiKJ0ZRQ7ME56UNK06sbEBrQckWY=
+github.com/dgff07/go-log-lib v1.0.1/go.mod h1:HIHN63RXi9vGYTYy6sdmUScuNvrKgEflXata4sN4KpA=
 github.com/docopt/docopt-go v0.0.0-20180111231733-ee0de3bc6815/go.mod h1:WwZ+bS3ebgob9U8Nd0kOddGdZWjyMGR8Wziv+TBNwSE=
 github.com/emicklei/go-restful/v3 v3.8.0 h1:eCZ8ulSerjdAiaNpF7GxXIE7ZCMo1moN1qX+S609eVw=
 github.com/emicklei/go-restful/v3 v3.8.0/go.mod h1:6n3XBCmQQb25CM2LCACGz8ukIrRry+4bhvbpWn3mrbc=
