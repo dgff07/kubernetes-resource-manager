@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 
-	"github.com/dgff07/kubernetes-resource-manager/logging"
+	"github.com/dgff07/go-log-lib/logging"
 	"github.com/dgff07/kubernetes-resource-manager/model"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/kubernetes"

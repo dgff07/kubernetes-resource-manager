@@ -3,7 +3,7 @@ package model
 import (
 	"encoding/json"
 
-	"github.com/dgff07/kubernetes-resource-manager/logging"
+	"github.com/dgff07/go-log-lib/logging"
 )
 
 func ConvertJsonToNamespaceStruct(jsonData string) (*Namespace, error) {
